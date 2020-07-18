@@ -1,0 +1,13 @@
+version: "3"
+services:
+  web:
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: DockerFile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /graphql_front/node_modules
+      - .:/graphql_front
