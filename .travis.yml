@@ -2,7 +2,8 @@ sudo: required
 services:
   - docker
 
-before_script:
-  - docker build -t sabersalhi/docker-react -f DockerFile.dev .
+# before_script:
+
 script:
-  - docker run sabersalhi/docker-react yarn test -- --coverage
+  # - docker run sabersalhi/docker-react yarn test -- --coverage
+  - docker build -it sabersalhi/docker-react -f DockerFile.dev .
