@@ -6,4 +6,4 @@ services:
 
 script:
   # - docker run sabersalhi/docker-react yarn test -- --coverage
-  - docker build -it sabersalhi/docker-react -f DockerFile.dev .
+  - docker build -t sabersalhi/docker-react -f DockerFile.dev .
