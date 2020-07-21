@@ -2,7 +2,7 @@ FROM node:10-alpine
 
 WORKDIR "/graphql_front"
 
-COPY package.json .
+COPY COPY package*.json ./
 RUN yarn install
 COPY . .
 RUN yarn build
