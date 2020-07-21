@@ -16,6 +16,6 @@ deploy:
   bucket_path: "graphql-app"
   on:
     branch: master
-    access_key_id: $AWS_ACCESS_KEY
+    access_key_id: $AWS_ACCESS_KEY_ID
     secret_access_key:
       secure: "$AWS_SECRET_KEY"
