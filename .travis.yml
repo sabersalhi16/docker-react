@@ -5,4 +5,17 @@ services:
 # before_script:
 
 script:
+  # - docker run sabersalhi/docker-react yarn test -- --coverage
   - docker build -t sabersalhi/docker-react -f DockerFile.dev .
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-3"
+  app: "graphql-app"
+  env: "GraphqlApp-env"
+  bucket_name: "elasticbeanstalk-eu-west-3-365105555140"
+  bucket_path: "graphql-app"
+  on:
+    branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+      secret: "$AWS_SECRET_KEY"
