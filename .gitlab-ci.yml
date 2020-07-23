@@ -2,9 +2,17 @@ image: node:10.20.1
 
 stages:
   - test
-
+  - build
 test:
   stage: test
   script:
     - yarn
     - CI=true yarn test
+build:
+  stage: build
+  script:
+    - echo "building"
+    - mkdir build
+  artifacts:
+    paths:
+      - build/
