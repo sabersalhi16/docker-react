@@ -34,4 +34,3 @@ deploy:
     - eval $(aws ecr get-login --no-include-email --region $AWS_REGION | sed 's|https://||')
     script:
         - aws s3 cp build/ s3://$BUCKET_NAME/ --recursive --include "*"
-        - aws cloudfront create-invalidation --distribution-id $CDN_DISTRIBUTION_ID --paths "/*
