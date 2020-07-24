@@ -1,14 +1,6 @@
-variables:
-    # Common
-    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-    AWS_REGION: $AWS_REGION
-    S3_BUCKET_NAME: $S3_BUCKET_NAME
-    CDN_DISTRIBUTION_ID: $CDN_DISTRIBUTION_ID
 image: docker:latest
 services:
       - docker:dind
-
 stages:
   - test
   - build
