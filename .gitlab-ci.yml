@@ -1,4 +1,4 @@
-image: node:latest
+image: docker:latest
 variables:
   BUCKET_NAME: saber-bucket # Your bucket name
 stages:
