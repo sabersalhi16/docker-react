@@ -24,5 +24,5 @@ deploy:
     - pip install awscli
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-    - aws rm s3://{BUCKET_NAME} --recursive
+    - aws s3 rm s3://{BUCKET_NAME} --recursive
     - aws s3 sync build/  s3://${BUCKET_NAME} --acl public-read
