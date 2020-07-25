@@ -6,7 +6,7 @@ services:
 
 script:
   # - docker run sabersalhi/docker-react yarn test -- --coverage
-  - docker build -t sabersalhi/docker-react -f DockerFile.dev .
+  - docker build -t sabersalhi/docker-react  .
 deploy:
   provider: elasticbeanstalk
   region: "eu-west-3"
