@@ -3,25 +3,24 @@ variables:
   AWS_DEFAULT_REGION: eu-west-3 # The region of our S3 bucket
   BUCKET_NAME: elasticbeanstalk-eu-west-3-365105555140 # Your bucket name
 stages:
-  - test
-  - build
+  # - test
+  # - build
   - deploy
 test:
+  stage: test
   script:
-  stage: test
-  - yarn
-  - CI=true yarn test
+    - yarn
+    - CI=true yarn test
 build:
   stage: build
   script:
     - echo "building"
-      - mkdir build
+    - mkdir build
   artifacts:
     paths:
       - build/
-
 deploy:
   stage: deploy
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest # see the note below
   script:
-    - aws s3 cp build s3://${BUCKET_NAME}/${CI_COMMIT_REF_SLUG} --recursive
+    - aws s3 cp build/  s3://${BUCKET_NAME}/${CI_COMMIT_REF_SLUG} --recursive
