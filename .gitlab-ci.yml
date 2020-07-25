@@ -14,12 +14,12 @@ stages:
 # build:
 #   stage: build
 #   script:
-    - echo "building"
+#   - echo "building"
 #     - mkdir build
 #   artifacts:
 #     paths:
 #       - build/
-# */
+#
 deploy:
   stage: deploy
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest # see the note below
