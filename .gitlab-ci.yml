@@ -1,4 +1,4 @@
-image: docker
+image: node:latest
 variables:
   AWS_DEFAULT_REGION: eu-west-3 # The region of our S3 bucket
   BUCKET_NAME: saber-bucket # Your bucket name
@@ -7,9 +7,12 @@ stages:
   - deploy
 build:
   stage: build
+  before_script:
+    - docker info
   script:
     - echo "building"
     - docker build -t sabersalhi/docker-react -f DockerFile.dev .
+    - docker run sabersalhi/docker-react yarn build
   artifacts:
     paths:
       - build/
