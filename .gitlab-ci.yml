@@ -15,7 +15,7 @@ build:
     - docker build -t sabersalhi/docker-react -f- <<EOF .
   artifacts:
     paths:
-      - graphql_front/build
+      - build
 deploy:
   image: python:latest
   stage: deploy

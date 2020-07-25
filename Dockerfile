@@ -1,7 +1,5 @@
 FROM node:10-alpine
 
-WORKDIR "/graphql_front"
-
 COPY COPY package*.json ./
 RUN yarn 
 COPY . .
