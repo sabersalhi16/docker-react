@@ -8,10 +8,11 @@ stages:
   - build
   - deploy
 build:
+  image: node:10-alpine
   stage: build
   script:
     - echo "building"
-    - docker build -t sabersalhi/docker-react  .
+    - docker build -t sabersalhi/docker-react -f- <<EOF .
   artifacts:
     paths:
       - graphql_front/build
@@ -21,8 +22,4 @@ deploy:
   only:
     - master
   script:
-    - pip install awscli
-    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-    - aws s3 rm s3://${BUCKET_NAME} --recursive
-    - aws s3 sync ./graphql_front/build  s3://${BUCKET_NAME} --acl public-read
+    - aws s3 cp --recursive ./build s3://${BUCKET_NAME}
