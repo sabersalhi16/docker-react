@@ -1,4 +1,4 @@
-image: node:10.20.1
+image: docker
 variables:
   AWS_DEFAULT_REGION: eu-west-3 # The region of our S3 bucket
   BUCKET_NAME: saber-bucket # Your bucket name
