@@ -1,5 +1,7 @@
 image: node:10.20.1
-
+variables:
+  AWS_DEFAULT_REGION: eu-west-3 # The region of our S3 bucket
+  BUCKET_NAME: elasticbeanstalk-eu-west-3-365105555140 # Your bucket name
 stages:
   - test
   - build
