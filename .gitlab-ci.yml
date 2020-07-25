@@ -11,7 +11,7 @@ build:
   stage: build
   script:
     - echo "building"
-    - docker build -t sabersalhi/docker-react -f- <<EOF .
+    - docker build -t sabersalhi/docker-react .
   artifacts:
     paths:
       - build
