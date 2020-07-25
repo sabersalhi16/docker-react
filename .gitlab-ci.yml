@@ -17,13 +17,17 @@ cache:
 build:
   stage: build
   script:
-    - npm install
-    - npm run-script build
+    - yarn
+    - yarn build
 test:
   stage: test
   script:
     - echo "Running react test suite......"
 deploy:
+  image: python:latest
   stage: deploy
+  only:
+    - master
   script:
+    - pip install awscli
     - aws s3 cp --recursive ./build s3://docker-learn
