@@ -4,7 +4,7 @@ WORKDIR "/graphql_front"
 
 COPY COPY package*.json ./
 RUN yarn install
-COPY ./ ./
+COPY . .
 RUN yarn build
 
 #FROM nginx
