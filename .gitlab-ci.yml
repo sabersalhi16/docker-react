@@ -9,7 +9,7 @@ build:
   stage: build
   script:
     - echo "building"
-    - CI=true yarn build
+    - docker build -t sabersalhi/docker-react -f DockerFile.dev .
   artifacts:
     paths:
       - build/
