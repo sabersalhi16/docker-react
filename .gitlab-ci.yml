@@ -3,9 +3,9 @@ image: node:latest
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 #AWS access keys stored as secret variables
-variables:
-  AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-  AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+#variables:
+#AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+#AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
 #This declares the pipeline stages
 stages:
   - build
@@ -33,4 +33,6 @@ deploy:
     - master
   script:
     - pip install awscli
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws s3 cp --recursive ./build s3://docker-learn
