@@ -37,4 +37,4 @@ deploy:
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws s3 rm s3://${BUCKET_NAME} --recursive
-    # - aws s3 cp --recursive ./build s3://${BUCKET_NAME}
+    - aws s3 cp --recursive ./build s3://${BUCKET_NAME}
